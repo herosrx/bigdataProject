@@ -1,0 +1,540 @@
+{% extends "publicPage/base.html" %}
+
+{% block base %}
+
+{% load static %}
+
+<!--<div class="container-fluid">-->
+<div class="container-scroller">
+
+    <!--包含common_top.html-->
+    {% include "common/common_top.html" %}
+
+    <div class="container-fluid page-body-wrapper">
+
+        <!--包含ipMenuManage.html-->
+        {% include "menuPage/cjglPageHomeMenuManage.html" %}
+
+        <!--{#右侧区域-->
+        <div class="main-panel">
+
+            <div class="content-wrapper">
+
+                <!--右侧上-->
+                <div class="row">
+                    <div class="col-md-12 grid-margin">
+                        <div class="d-flex justify-content-between flex-wrap">
+                            <div class="d-flex align-items-end flex-wrap">
+                                <div class="mr-md-3 mr-xl-5">
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12 grid-margin">
+                        <div class="d-flex justify-content-between align-items-end flex-wrap">
+                            <button type="button" class="btn btn-primary mt-0 mt-xl-0">采集房价数据</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-inline" style="margin-top: 5px;">
+
+                    <div class="form-group">
+                        <label style="color:green;">来源：</label>
+                        <select class="form-control select" name="lyxx_mc" id="lyxx_id"  style="width: 150px;margin-left: 5px;">
+                            <option value="0">请选择来源信息</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label style="color:green;margin-left: 15px" >网址：</label>
+                        <select class="form-control select" name="lywz_mc" id="lywz_id"  style="width: 575px;margin-left: 5px;">
+                            <option value="0">请选择来源网址</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <div class="form-inline" style="margin-top: 10px;">
+
+                    <div class="form-group">
+                        <label style="color:green;">省份：</label>
+                        <select class="form-control select" name="sf_mc" id="sf_id"  style="width: 150px;margin-left: 5px;">
+                            <option value="0">请选择省份</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label style="margin-left: 15px;color: green;">城市：</label>
+                        <select class="form-control select2" name="city_mc" id="city_id" style="width: 150px;margin-left: 5px;">
+                            <option value="0">请选择城市</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label style="margin-left: 15px;color: green;">区域：</label>
+                        <select class="form-control select2" name="area_mc" id="area_id" style="width: 150px;margin-left: 5px;">
+                            <option value="0">请选择区域</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label style="margin-left: 15px;color: green;">地段：</label>
+                        <select class="form-control select2" name="regional_area_mc" id="regional_area_id" style="width: 150px;margin-left: 5px;">
+                            <option value="0">请选择地段</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <hr>
+
+
+
+                <!--面板切换-->
+                <!--<div class="row">-->
+                    <!--<div class="col-md-12 grid-margin stretch-card">-->
+                        <!--<div class="card">-->
+                            <!--<div class="card-body dashboard-tabs p-0">-->
+                                <!--&lt;!&ndash;导航面板&ndash;&gt;-->
+                                <!--<ul class="nav nav-tabs px-4" role="tablist">-->
+
+                                    <!--<li class="nav-item">-->
+                                        <!--<a class="nav-link active" id="szzsss-tab" data-toggle="tab"-->
+                                            <!--href="#szzsss" role="tab" aria-controls="szzsss"-->
+                                            <!--aria-selected="true">上证指数-->
+                                        <!--</a>-->
+                                    <!--</li>-->
+
+                                    <!--<li class="nav-item">-->
+                                        <!--<a class="nav-link" id="szzs-tab" data-toggle="tab"-->
+                                            <!--href="#szzs" role="tab" aria-controls="szzs"-->
+                                            <!--aria-selected="false">深圳指数</a>-->
+                                    <!--</li>-->
+
+                                    <!--<li class="nav-item">-->
+                                        <!--<a class="nav-link" id="cyb-tab" data-toggle="tab"-->
+                                           <!--href="#cyb" role="tab"-->
+                                           <!--aria-controls="cyb" aria-selected="false">创业板</a>-->
+                                    <!--</li>-->
+
+                                    <!--<li class="nav-item">-->
+                                        <!--<a class="nav-link" id="kcb-tab" data-toggle="tab"-->
+                                           <!--href="#kcb" role="tab"-->
+                                           <!--aria-controls="kcb" aria-selected="false">科创板</a>-->
+                                    <!--</li>-->
+                                <!--</ul>-->
+
+                                <!--<div class="tab-content py-0 px-0">-->
+                                    <!--&lt;!&ndash;第一面板&ndash;&gt;-->
+                                    <!--<div class="tab-pane fade active show" id="szzsss" role="tabpanel" aria-labelledby="szzs-tab">-->
+                                        <!--<div class="d-flex flex-wrap justify-content-xl-between">-->
+                                            <!--<div class="d-none d-xl-flex border-md-right flex-grow-1 align-items-center justify-content-center p-3 item">-->
+                                                <!--<i class="mdi mdi-calendar-heart icon-lg mr-3 text-primary"></i>-->
+                                                <!--<div class="d-flex flex-column justify-content-around">-->
+                                                    <!--<small class="mb-1 text-muted">Start date</small>-->
+                                                    <!--<div class="dropdown">-->
+                                                        <!--<a class="btn btn-secondary dropdown-toggle p-0 bg-transparent border-0 text-dark shadow-none-->
+                                                            <!--font-weight-medium" href="https://majestic.bootmb.com/index.html#" role="button"-->
+                                                            <!--id="dropdownMenuLinkA" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+                                                            <!--<h5 class="mb-0 d-inline-block">26 Jul 2018</h5>-->
+                                                        <!--</a>-->
+                                                        <!--<div class="dropdown-menu" aria-labelledby="dropdownMenuLinkA">-->
+                                                            <!--<a class="dropdown-item" href="#">12 Aug 2018</a>-->
+                                                            <!--<a class="dropdown-item" href="#">22 Sep 2018</a>-->
+                                                            <!--<a class="dropdown-item" href="#">21 Oct 2018</a>-->
+                                                        <!--</div>-->
+                                                    <!--</div>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+
+                                            <!--<div class="d-flex border-md-right flex-grow-1 align-items-center justify-content-center p-3 item">-->
+                                                <!--<i class="mdi mdi-currency-usd mr-3 icon-lg text-danger"></i>-->
+                                                <!--<div class="d-flex flex-column justify-content-around">-->
+                                                    <!--<small class="mb-1 text-muted">Revenue</small>-->
+                                                    <!--<h5 class="mr-2 mb-0">$577545</h5>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+
+                                            <!--<div class="d-flex border-md-right flex-grow-1 align-items-center justify-content-center p-3 item">-->
+                                                <!--<i class="mdi mdi-eye mr-3 icon-lg text-success"></i>-->
+                                                <!--<div class="d-flex flex-column justify-content-around">-->
+                                                    <!--<small class="mb-1 text-muted">Total views</small>-->
+                                                    <!--<h5 class="mr-2 mb-0">9833550</h5>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+
+                                            <!--<div class="d-flex border-md-right flex-grow-1 align-items-center justify-content-center p-3 item">-->
+                                                <!--<i class="mdi mdi-download mr-3 icon-lg text-warning"></i>-->
+                                                <!--<div class="d-flex flex-column justify-content-around">-->
+                                                    <!--<small class="mb-1 text-muted">Downloads</small>-->
+                                                    <!--<h5 class="mr-2 mb-0">2233783</h5>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+
+                                            <!--<div class="d-flex py-3 border-md-right flex-grow-1 align-items-center justify-content-center p-3 item">-->
+                                                <!--<i class="mdi mdi-flag mr-3 icon-lg text-danger"></i>-->
+                                                <!--<div class="d-flex flex-column justify-content-around">-->
+                                                    <!--<small class="mb-1 text-muted">Flagged</small>-->
+                                                    <!--<h5 class="mr-2 mb-0">3497843</h5>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+
+                                        <!--</div>-->
+                                    <!--</div>-->
+
+                                    <!--&lt;!&ndash;第二面板&ndash;&gt;-->
+                                    <!--<div class="tab-pane fade" id="szzs" role="tabpanel" aria-labelledby="szzs-tab">-->
+                                        <!--<div class="d-flex flex-wrap justify-content-xl-between">-->
+                                            <!--<div class="d-none d-xl-flex border-md-right flex-grow-1 align-items-center justify-content-center p-3 item">-->
+                                                <!--<i class="mdi mdi-calendar-heart icon-lg mr-3 text-primary"></i>-->
+                                                <!--<div class="d-flex flex-column justify-content-around">-->
+                                                    <!--<small class="mb-1 text-muted">Start date</small>-->
+                                                    <!--<div class="dropdown">-->
+                                                        <!--<a class="btn btn-secondary dropdown-toggle p-0 bg-transparent border-0-->
+                                                            <!--text-dark shadow-none font-weight-medium"-->
+                                                            <!--href="https://majestic.bootmb.com/index.html#" role="button"-->
+                                                            <!--id="dropdownMenuLinkB" data-toggle="dropdown" aria-haspopup="true"-->
+                                                            <!--aria-expanded="false">-->
+                                                            <!--<h5 class="mb-0 d-inline-block">26 Jul 2018</h5>-->
+                                                        <!--</a>-->
+                                                        <!--<div class="dropdown-menu" aria-labelledby="dropdownMenuLinkB">-->
+                                                          <!--<a class="dropdown-item" href="https://majestic.bootmb.com/index.html#">12 Aug 2018</a>-->
+                                                          <!--<a class="dropdown-item" href="https://majestic.bootmb.com/index.html#">22 Sep 2018</a>-->
+                                                          <!--<a class="dropdown-item" href="https://majestic.bootmb.com/index.html#">21 Oct 2018</a>-->
+                                                        <!--</div>-->
+                                                    <!--</div>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+
+                                            <!--<div class="d-flex border-md-right flex-grow-1 align-items-center justify-content-center p-3 item">-->
+                                                <!--<i class="mdi mdi-download mr-3 icon-lg text-warning"></i>-->
+                                                <!--<div class="d-flex flex-column justify-content-around">-->
+                                                    <!--<small class="mb-1 text-muted">Downloads</small>-->
+                                                    <!--<h5 class="mr-2 mb-0">2233783</h5>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+
+                                            <!--<div class="d-flex border-md-right flex-grow-1 align-items-center justify-content-center p-3 item">-->
+                                                  <!--<i class="mdi mdi-eye mr-3 icon-lg text-success"></i>-->
+                                                  <!--<div class="d-flex flex-column justify-content-around">-->
+                                                      <!--<small class="mb-1 text-muted">Total views</small>-->
+                                                      <!--<h5 class="mr-2 mb-0">9833550</h5>-->
+                                                  <!--</div>-->
+                                            <!--</div>-->
+
+                                            <!--<div class="d-flex border-md-right flex-grow-1 align-items-center justify-content-center p-3 item">-->
+                                                <!--<i class="mdi mdi-currency-usd mr-3 icon-lg text-danger"></i>-->
+                                                <!--<div class="d-flex flex-column justify-content-around">-->
+                                                    <!--<small class="mb-1 text-muted">Revenue</small>-->
+                                                    <!--<h5 class="mr-2 mb-0">$577545</h5>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+
+                                            <!--<div class="d-flex py-3 border-md-right flex-grow-1 align-items-center justify-content-center p-3 item">-->
+                                                <!--<i class="mdi mdi-flag mr-3 icon-lg text-danger"></i>-->
+                                                <!--<div class="d-flex flex-column justify-content-around">-->
+                                                    <!--<small class="mb-1 text-muted">Flagged</small>-->
+                                                    <!--<h5 class="mr-2 mb-0">3497843</h5>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+
+                                    <!--&lt;!&ndash;第三面板&ndash;&gt;-->
+                                    <!--<div class="tab-pane fade" id="cyb" role="tabpanel" aria-labelledby="cyb-tab">-->
+                                        <!--<div class="d-flex flex-wrap justify-content-xl-between">-->
+                                            <!--<div class="d-none d-xl-flex border-md-right flex-grow-1 align-items-center justify-content-center p-3 item">-->
+                                                <!--<i class="mdi mdi-calendar-heart icon-lg mr-3 text-primary"></i>-->
+                                                <!--<div class="d-flex flex-column justify-content-around">-->
+                                                    <!--<small class="mb-1 text-muted">Start date</small>-->
+                                                    <!--<div class="dropdown">-->
+                                                        <!--<a class="btn btn-secondary dropdown-toggle p-0 bg-transparent border-0-->
+                                                            <!--text-dark shadow-none font-weight-medium"-->
+                                                            <!--href="https://majestic.bootmb.com/index.html#" role="button"-->
+                                                            <!--id="dropdownMenuLinkC" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+                                                            <!--<h5 class="mb-0 d-inline-block">26 Jul 2018</h5>-->
+                                                        <!--</a>-->
+                                                        <!--<div class="dropdown-menu" aria-labelledby="dropdownMenuLinkC">-->
+                                                            <!--<a class="dropdown-item" href="https://majestic.bootmb.com/index.html#">12 Aug 2018</a>-->
+                                                            <!--<a class="dropdown-item" href="https://majestic.bootmb.com/index.html#">22 Sep 2018</a>-->
+                                                            <!--<a class="dropdown-item" href="https://majestic.bootmb.com/index.html#">21 Oct 2018</a>-->
+                                                        <!--</div>-->
+                                                    <!--</div>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+
+                                            <!--<div class="d-flex border-md-right flex-grow-1 align-items-center justify-content-center p-3 item">-->
+                                                <!--<i class="mdi mdi-currency-usd mr-3 icon-lg text-danger"></i>-->
+                                                <!--<div class="d-flex flex-column justify-content-around">-->
+                                                    <!--<small class="mb-1 text-muted">Revenue</small>-->
+                                                    <!--<h5 class="mr-2 mb-0">$577545</h5>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+
+                                            <!--<div class="d-flex border-md-right flex-grow-1 align-items-center justify-content-center p-3 item">-->
+                                                <!--<i class="mdi mdi-eye mr-3 icon-lg text-success"></i>-->
+                                                <!--<div class="d-flex flex-column justify-content-around">-->
+                                                    <!--<small class="mb-1 text-muted">Total views</small>-->
+                                                    <!--<h5 class="mr-2 mb-0">9833550</h5>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+
+                                            <!--<div class="d-flex border-md-right flex-grow-1 align-items-center justify-content-center p-3 item">-->
+                                                <!--<i class="mdi mdi-download mr-3 icon-lg text-warning"></i>-->
+                                                <!--<div class="d-flex flex-column justify-content-around">-->
+                                                    <!--<small class="mb-1 text-muted">Downloads</small>-->
+                                                    <!--<h5 class="mr-2 mb-0">2233783</h5>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+
+                                            <!--<div class="d-flex py-3 border-md-right flex-grow-1 align-items-center justify-content-center p-3 item">-->
+                                                <!--<i class="mdi mdi-flag mr-3 icon-lg text-danger"></i>-->
+                                                <!--<div class="d-flex flex-column justify-content-around">-->
+                                                    <!--<small class="mb-1 text-muted">Flagged</small>-->
+                                                    <!--<h5 class="mr-2 mb-0">3497843</h5>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+
+                                    <!--&lt;!&ndash;第四面板&ndash;&gt;-->
+                                    <!--<div class="tab-pane fade" id="kcb" role="tabpanel" aria-labelledby="kcb-tab">-->
+                                        <!--<div class="d-flex flex-wrap justify-content-xl-between">-->
+                                            <!--<div class="d-none d-xl-flex border-md-right flex-grow-1 align-items-center justify-content-center p-3 item">-->
+                                                <!--<i class="mdi mdi-calendar-heart icon-lg mr-3 text-primary"></i>-->
+                                                <!--<div class="d-flex flex-column justify-content-around">-->
+                                                    <!--<small class="mb-1 text-muted">Start date</small>-->
+                                                    <!--<div class="dropdown">-->
+                                                        <!--<a class="btn btn-secondary dropdown-toggle p-0 bg-transparent border-0-->
+                                                            <!--text-dark shadow-none font-weight-medium"-->
+                                                            <!--href="https://majestic.bootmb.com/index.html#" role="button"-->
+                                                            <!--id="dropdownMenuLinkD" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+                                                            <!--<h5 class="mb-0 d-inline-block">26 Jul 2018</h5>-->
+                                                        <!--</a>-->
+                                                        <!--<div class="dropdown-menu" aria-labelledby="dropdownMenuLinkD">-->
+                                                            <!--<a class="dropdown-item" href="https://majestic.bootmb.com/index.html#">12 Aug 2018</a>-->
+                                                            <!--<a class="dropdown-item" href="https://majestic.bootmb.com/index.html#">22 Sep 2018</a>-->
+                                                            <!--<a class="dropdown-item" href="https://majestic.bootmb.com/index.html#">21 Oct 2018</a>-->
+                                                        <!--</div>-->
+                                                    <!--</div>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+
+                                            <!--<div class="d-flex border-md-right flex-grow-1 align-items-center justify-content-center p-3 item">-->
+                                                <!--<i class="mdi mdi-currency-usd mr-3 icon-lg text-danger"></i>-->
+                                                <!--<div class="d-flex flex-column justify-content-around">-->
+                                                    <!--<small class="mb-1 text-muted">Revenue</small>-->
+                                                    <!--<h5 class="mr-2 mb-0">$577545</h5>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+
+                                            <!--<div class="d-flex border-md-right flex-grow-1 align-items-center justify-content-center p-3 item">-->
+                                                <!--<i class="mdi mdi-eye mr-3 icon-lg text-success"></i>-->
+                                                <!--<div class="d-flex flex-column justify-content-around">-->
+                                                    <!--<small class="mb-1 text-muted">Total views</small>-->
+                                                    <!--<h5 class="mr-2 mb-0">9833550</h5>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+
+                                            <!--<div class="d-flex border-md-right flex-grow-1 align-items-center justify-content-center p-3 item">-->
+                                                <!--<i class="mdi mdi-download mr-3 icon-lg text-warning"></i>-->
+                                                <!--<div class="d-flex flex-column justify-content-around">-->
+                                                    <!--<small class="mb-1 text-muted">Downloads</small>-->
+                                                    <!--<h5 class="mr-2 mb-0">2233783</h5>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+
+                                            <!--<div class="d-flex py-3 border-md-right flex-grow-1 align-items-center justify-content-center p-3 item">-->
+                                                <!--<i class="mdi mdi-flag mr-3 icon-lg text-danger"></i>-->
+                                                <!--<div class="d-flex flex-column justify-content-around">-->
+                                                    <!--<small class="mb-1 text-muted">Flagged</small>-->
+                                                    <!--<h5 class="mr-2 mb-0">3497843</h5>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+                <!--&lt;!&ndash;&lt;!&ndash;<button type="button" class="btn btn-primary"> Primary </button>&ndash;&gt;&ndash;&gt;-->
+                <!--&lt;!&ndash;<button type="button" class="btn btn-success"> Success </button>&ndash;&gt;-->
+                <!--<button type="button" class="btn btn-danger"> Danger </button>-->
+
+
+                <!--表格-->
+                <!--<div class="row" style="margin-top: 20px;">-->
+                    <!--<div class="col-md-12 stretch-card">-->
+                        <!--<div class="card">-->
+                            <!--<div class="card-body">-->
+                                <!--<p class="card-title">-->
+                                    <!--<h3>统计数据</h3>-->
+                                <!--</p>-->
+                                <!--<div class="table-responsive">-->
+                                    <!--<div id="recent-purchases-listing_wrapper"-->
+                                         <!--class="dataTables_wrapper container-fluid dt-bootstrap4 no-footer">-->
+                                        <!--<div class="row">-->
+                                            <!--<div class="col-sm-12 col-md-6"></div>-->
+                                            <!--<div class="col-sm-12 col-md-6"></div>-->
+                                        <!--</div>-->
+                                        <!--<div class="row">-->
+                                            <!--<div class="col-sm-12">-->
+                                                <!--<table id="recent-purchases-listing"-->
+                                                       <!--class="table dataTable no-footer" role="grid">-->
+                                                    <!--<thead>-->
+                                                        <!--<tr role="row">-->
+                                                            <!--<th class="sorting_asc" tabindex="0"-->
+                                                                <!--aria-controls="recent-purchases-listing"-->
+                                                                <!--rowspan="1" colspan="1" aria-sort="ascending"-->
+                                                                <!--aria-label="Name: activate to sort column descending"-->
+                                                                <!--style="width: 185.438px;">Name-->
+                                                            <!--</th>-->
+                                                            <!--<th class="sorting" tabindex="0"-->
+                                                                <!--aria-controls="recent-purchases-listing" rowspan="1"-->
+                                                                <!--colspan="1"-->
+                                                                <!--aria-label="Status report: activate to sort column ascending"-->
+                                                                <!--style="width: 238.234px;">Status report-->
+                                                            <!--</th>-->
+                                                            <!--<th class="sorting" tabindex="0" aria-controls="recent-purchases-listing"-->
+                                                                <!--rowspan="1" colspan="1"-->
+                                                                <!--aria-label="Office: activate to sort column ascending"-->
+                                                                <!--style="width: 169.938px;">Office-->
+                                                            <!--</th>-->
+                                                            <!--<th class="sorting" tabindex="0" aria-controls="recent-purchases-listing"-->
+                                                                <!--rowspan="1" colspan="1"-->
+                                                                <!--aria-label="Price: activate to sort column ascending"-->
+                                                                <!--style="width: 85.3594px;">Price-->
+                                                            <!--</th>-->
+                                                            <!--<th class="sorting" tabindex="0" aria-controls="recent-purchases-listing"-->
+                                                                <!--rowspan="1" colspan="1" aria-label="Date: activate to sort column ascending"-->
+                                                                <!--style="width: 126.359px;">Date-->
+                                                            <!--</th>-->
+                                                            <!--<th class="sorting" tabindex="0" aria-controls="recent-purchases-listing"-->
+                                                                <!--rowspan="1" colspan="1"-->
+                                                                <!--aria-label="Gross amount: activate to sort column ascending"-->
+                                                                <!--style="width: 186.422px;">Gross amount-->
+                                                            <!--</th>-->
+                                                        <!--</tr>-->
+                                                    <!--</thead>-->
+                                                    <!--<tbody>-->
+                                                        <!--<tr role="row" class="odd">-->
+                                                            <!--<td class="sorting_1">Alvin Fisher</td>-->
+                                                            <!--<td>Ui design completed</td>-->
+                                                            <!--<td>East Mayra</td>-->
+                                                            <!--<td>$23230</td>-->
+                                                            <!--<td>18 Jul 2018</td>-->
+                                                           <!--<td>$83127</td>-->
+                                                        <!--</tr>-->
+                                                        <!--<tr role="row" class="even">-->
+                                                            <!--<td class="sorting_1">Betty Hunt</td>-->
+                                                            <!--<td>Ui design not completed</td>-->
+                                                            <!--<td>Lake Sandrafort</td>-->
+                                                            <!--<td>$571</td>-->
+                                                            <!--<td>25 Jun 2018</td>-->
+                                                            <!--<td>$78952</td>-->
+                                                        <!--</tr>-->
+                                                        <!--<tr role="row" class="odd">-->
+                                                            <!--<td class="sorting_1">Emily Cunningham</td>-->
+                                                            <!--<td>support</td>-->
+                                                            <!--<td>Makennaton</td>-->
+                                                            <!--<td>$939</td>-->
+                                                            <!--<td>16 Jul 2018</td>-->
+                                                            <!--<td>$29177</td>-->
+                                                        <!--</tr>-->
+                                                        <!--<tr role="row" class="even">-->
+                                                            <!--<td class="sorting_1">Ernest Wade</td>-->
+                                                            <!--<td>Levelled up</td>-->
+                                                            <!--<td>West Fidelmouth</td>-->
+                                                            <!--<td>$484</td>-->
+                                                            <!--<td>08 Sep 2018</td>-->
+                                                            <!--<td>$50862</td>-->
+                                                        <!--</tr>-->
+                                                        <!--<tr role="row" class="odd">-->
+                                                            <!--<td class="sorting_1">Jacob Kennedy</td>-->
+                                                            <!--<td>New project</td>-->
+                                                            <!--<td>Cletaborough</td>-->
+                                                            <!--<td>$314</td>-->
+                                                            <!--<td>12 Jul 2018</td>-->
+                                                            <!--<td>$34167</td>-->
+                                                        <!--</tr>-->
+                                                        <!--<tr role="row" class="even">-->
+                                                            <!--<td class="sorting_1">Jeremy Ortega</td>-->
+                                                            <!--<td>Levelled up</td>-->
+                                                            <!--<td>Catalinaborough</td>-->
+                                                            <!--<td>$790</td>-->
+                                                            <!--<td>06 Jan 2018</td>-->
+                                                            <!--<td>$2274253</td>-->
+                                                        <!--</tr>-->
+                                                        <!--<tr role="row" class="odd">-->
+                                                            <!--<td class="sorting_1">Minnie Farmer</td>-->
+                                                            <!--<td>support</td>-->
+                                                            <!--<td>Agustinaborough</td>-->
+                                                            <!--<td>$30</td>-->
+                                                            <!--<td>30 Apr 2018</td>-->
+                                                            <!--<td>$44617</td>-->
+                                                        <!--</tr>-->
+                                                        <!--<tr role="row" class="even">-->
+                                                            <!--<td class="sorting_1">Myrtie Lambert</td>-->
+                                                            <!--<td>Ui design completed</td>-->
+                                                            <!--<td>Cassinbury</td>-->
+                                                            <!--<td>$36</td>-->
+                                                            <!--<td>05 Nov 2018</td>-->
+                                                            <!--<td>$36422</td>-->
+                                                        <!--</tr>-->
+                                                    <!--</tbody>-->
+                                                <!--</table>-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+                                        <!--<div class="row">-->
+                                            <!--<div class="col-sm-12 col-md-5"></div>-->
+                                            <!--<div class="col-sm-12 col-md-7"></div>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            </div>
+
+            <!--包含common_top.html-->
+            {% include "common/common_footer.html" %}
+
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src='{% static "js/api/exterendAPI/bigDataChina/provinceCityInfo.js" %}'></script>
+<!--<script type="text/javascript" src='{% static "js/api/exterendAPI/bigDataChina/provinceInfo.js" %}'></script>-->
+<!--<script type="text/javascript" src='{% static "js/api/exterendAPI/bigDataChina/cityInfo.js" %}'></script>-->
+<script type="text/javascript" src='{% static "js/api/exterendAPI/bigDataChina/cityHousePrice.js" %}'></script>
+<script type="text/javascript" src='{% static "js/api/exterendAPI/bigDataChina/cityAreaInfo.js" %}'></script>
+<script type="text/javascript" src='{% static "js/api/exterendAPI/bigDataChina/SourceInfo.js" %}'></script>
+
+
+<script type="text/javascript">
+
+    //初始化省份列表数据
+    SelectProvinceCityInit();
+
+    //初始化城市房价数据
+    SelectCityHousePriceInit();
+
+    //初始化来源信息数据
+    SelectSourceInit();
+
+</script>
+
+
+{% endblock %}
+
+
+

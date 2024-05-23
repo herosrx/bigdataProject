@@ -1,0 +1,80 @@
+
+
+.navbox{
+
+    width: 100px;
+    height: 40px;
+    margin: 20px auto;
+    background: #08c;
+}
+
+.navbox >ul>li{
+
+    float:left;
+    width:160px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.navbox ul li a{
+
+    display: block;
+    color:#fff;
+    background: #08c;
+}
+
+.navbox ul li a:hover {
+
+    text-decoration: none;
+    background: #00bfff;
+}
+
+.subnav{
+
+    display: none;
+}
+
+.navbox ul li:hover .subnav{
+
+    display: block;
+}
+
+.subnav >li{
+
+    position:relative;
+}
+
+.threenav{
+
+    position: absolute;
+    top:0;
+    left: 160px;
+    width:160px;
+}
+
+.subnav,.threenav{
+
+    display: none;
+}
+
+.subnav li:hover .threenav{
+
+    display: block;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
