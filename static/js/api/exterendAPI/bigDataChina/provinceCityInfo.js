@@ -136,96 +136,6 @@ var SelectProvinceCityInit = function () {
 
         }
 
-
-        //if (sf_xx.selectedIndex === -1) {
-        //
-        //    return;
-        //}
-        //
-        //if (city_xx.selectedIndex === 0){
-        //
-        //    //清除之前城市、区域、地段下拉数据
-        //    clearProvinceCityDataOption(city_xx);
-        //    clearProvinceCityDataOption(area_xx);
-        //    clearProvinceCityDataOption(regional_area_xx);
-        //
-        //    // 设置次对象、三级对象、四级对象关系默认选项
-        //    setDefaultOption(city_xx,"请选择城市");
-        //    setDefaultOption(area_xx,"请选择区域");
-        //    setDefaultOption(regional_area_xx,"请选择地段");
-        //
-        //}
-        //
-        //var j_sf_id = sf_xx.options[sf_xx.selectedIndex].value;
-        ////console.log(j_sf_id);
-        ////console.log("j_sf_id：",typeof (j_sf_id));
-        //
-        ////j_dxys_a_id = parseInt(j_dxys_a_id);
-        ////console.log(j_dxys_a_id);
-        ////console.log("j_dxys_a_id：",typeof (j_dxys_a_id));
-        //
-        //for (var i = 0; i < ProvinceCityDataList.length; i++) {
-        //
-        //    //console.log(ProvinceCityDataList[i].provinceId);
-        //    provinceId_string = ProvinceCityDataList[i].provinceId.toString();
-        //    //console.log(typeof (provinceId_string));
-        //
-        //    if (provinceId_string === j_sf_id && ProvinceCityDataList[i].provinceData === "北京市" ||
-        //        provinceId_string === j_sf_id && ProvinceCityDataList[i].provinceData === "天津市" ||
-        //        provinceId_string === j_sf_id && ProvinceCityDataList[i].provinceData === "上海市" ||
-        //        provinceId_string === j_sf_id && ProvinceCityDataList[i].provinceData === "广州市" ||
-        //        provinceId_string === j_sf_id && ProvinceCityDataList[i].provinceData === "深圳市")
-        //    {
-        //
-        //        sf_id = ProvinceCityDataList[i].provinceId;
-        //        //console.log("sf_id: ",sf_id);
-        //
-        //        //var city_data_list = ProvinceCityDataList[i].dxlx_b_xx;
-        //
-        //        //console.log("对象要素关系A切换后展示对象要素关系B数据：", dxlx_b_xx_list);
-        //
-        //        //清除城市、区域、地段下拉数据
-        //        clearProvinceCityDataOption(city_xx);
-        //        clearProvinceCityDataOption(area_xx);
-        //        clearProvinceCityDataOption(regional_area_xx);
-        //
-        //        // 设置城市、区域、地段默认选项
-        //        setDefaultOption(city_xx, "请选择城市");
-        //        setDefaultOption(area_xx, "请选择区域");
-        //        setDefaultOption(regional_area_xx, "请选择地段");
-        //
-        //        console.log(ProvinceCityDataList[i]);
-        //
-        //        addCityOption(city_xx, ProvinceCityDataList[i]);
-        //
-        //    }
-        //
-        //    else if (provinceId_string === j_sf_id){
-        //
-        //        console.log(ProvinceCityDataList[i]);
-        //
-        //        provinceId_string = ProvinceCityDataList[i].provinceDm;
-        //        console.log(provinceId_string);
-        //        console.log("provinceId_string:",typeof (provinceId_string));
-        //
-        //        //citySjdm = ProvinceCityDataList[i].citySjdm;
-        //        //provinceId_string = ProvinceCityDataList[i].provinceId.toString();
-        //        //console.log("citySjdm:",typeof (citySjdm));
-        //
-        //        if (ProvinceCityDataList[i].provinceDm === ProvinceCityDataList[i].citySjdm){
-        //
-        //            for (var j = 0; j < ProvinceCityDataList.length; j++) {
-        //
-        //                addCityOption(city_xx, ProvinceCityDataList[j]);
-        //
-        //            }
-        //        }
-        //
-        //     }
-        //
-        //
-        //}
-
     }
 
     //城市数据
@@ -297,8 +207,8 @@ var SelectProvinceCityInit = function () {
         setDefaultOption(area_xx,"请选择区域");
         setDefaultOption(regional_area_xx,"请选择地段");
 
-        //调用区域
-        //SelectCityAreaInit(sf_id,city_id);
+        //调用区域地段
+        SelectRegionalAreaInit(city_id);
 
     }
 
