@@ -47,6 +47,9 @@ urlpatterns = [
     #获取城市区域数据
     path('api/cjgl/getCityAreaDataList/', cjdata_views.get_city_area_data_list),
 
+    #获取城市区域地段数据
+    path('api/cjgl/getCityRegionalAreaDataList/', cjdata_views.get_city_regional_area_data_list),
+
     #获取城市房价数据
     path('api/cjgl/getCityHousePriceDataList/', cjdata_views.get_city_house_price_data_list),
 

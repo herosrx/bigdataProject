@@ -4,6 +4,7 @@ from externalClass.api.getProvinceCityInfo import getProvinceCity
 from externalClass.api.getProvinceInfo import getProvince
 from externalClass.api.getCityInfo import getCityInfo
 from externalClass.api.getCityAreaInfo import getCityAreaInfo
+from externalClass.api.getCityRegionalAreaInfo import getCityRegionalAreaInfo
 from externalClass.api.getCityHousePriceInfo import getCityHousePriceInfo
 from externalClass.api.getSourceInfo import getSourceInfo
 from externalClass.api.getSourceCityInfo import getSourceCityInfo
@@ -107,7 +108,7 @@ def get_city_area_data_list(request):
 
     if request.method == "GET":
 
-        c_id   = request.GET.get('city_id','')
+        c_id   = request.GET.get('cityId','')
 
         city_area_result_list = getCityAreaInfo(c_id)
 
@@ -117,7 +118,7 @@ def get_city_area_data_list(request):
 
             city_area_result_no = {
 
-                "info": "城市查询无结果",
+                "info": "城市区域查询无结果",
             }
 
             return JsonResponse({"status": 10100, "message": "success", "data": city_area_result_no})
@@ -125,6 +126,39 @@ def get_city_area_data_list(request):
         else:
 
             return JsonResponse({"status": 10200, "message": "success", "data": city_area_result_list})
+
+
+@auth_zsq
+def get_city_regional_area_data_list(request):
+
+    '''
+    初始化城市区域地段列表数据
+    '''
+
+    if request.method == "GET":
+
+        a_id   = request.GET.get('areaId','')
+
+        city_regional_area_result_list = getCityRegionalAreaInfo(a_id)
+
+        city_regional_area_result_no = {}
+
+        if city_regional_area_result_list == ():
+
+            city_regional_area_result_no = {
+
+                "info": "城市-区域-地段查询无结果",
+            }
+
+            return JsonResponse({"status": 10100, "message": "success", "data": city_regional_area_result_no})
+
+        else:
+
+            return JsonResponse({"status": 10200, "message": "success", "data": city_regional_area_result_list})
+
+
+
+
 
 
 @auth_zsq
@@ -212,35 +246,4 @@ def get_source_city_data_list(request):
         else:
 
             return JsonResponse({"status": 10200, "message": "success", "data": source_city_result_list})
-
-
-@auth_zsq
-def get_source_city_data_list(request):
-
-    '''
-    初始化来源城市列表数据
-    '''
-
-    if request.method == "GET":
-
-        lyxx_id   = request.GET.get('lyxxId','')
-
-        source_city_result_list = getSourceCityInfo(lyxx_id)
-
-        source_result_no = {}
-
-        if source_city_result_list == ():
-
-            source_city_result_no = {
-
-                "info": "来源城市查询无结果",
-            }
-
-            return JsonResponse({"status": 10100, "message": "success", "data": source_city_result_no})
-
-        else:
-
-            return JsonResponse({"status": 10200, "message": "success", "data": source_city_result_list})
-
-
 
