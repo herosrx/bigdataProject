@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'corsheaders',
+    'corsheaders',   #解决跨域问题
     'app.account_app',
     'app.pagehome_app',
     'app.cjgl_app',
@@ -65,6 +65,7 @@ CSRF_COOKIE_SECURE = False
 #跨域设置
 CORS_ALLOW_CREDENTIALS = True
 CORS_ORIGIN_ALLOW_ALL =  True
+CORS_ALLOW_ALL_ORIGINS = True  #sw
 CORS_ORIGIN_WHITELIST = (
     'http://127.0.0.1:*',
     'http://localhost:*',
@@ -154,8 +155,7 @@ DATABASES = {
                         'PORT':'3306',
                         'NAME':'bigdata',
                         'USER':'root',
-                        'PASSWORD':'1234qwer',
-                        # 'PASSWORD':'123456',
+                        'PASSWORD':'sw123456',
                         'OPTIONS':{
                                     # 'init_command':"SET sql_mode='STRICT_TRANS_TABLES'",
                                     'init_command': "SET sql_mode='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION'",

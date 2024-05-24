@@ -45,3 +45,8 @@
     http://127.0.0.1:8000/api/cjgl/getSourceDataList/
     #获取来源城市数据
     http://127.0.0.1:8000/api/cjgl/getSourceCityDataList/
+
+
+
+
+django  跨域好文：https://segmentfault.com/a/1190000042857203?sort=votes

@@ -14,7 +14,7 @@ from django.http import JsonResponse
 
 
 #采集数据首页
-@auth_zsq
+# @auth_zsq
 def get_province_city_data_list(request):
 
     '''
@@ -43,7 +43,7 @@ def get_province_city_data_list(request):
             return JsonResponse({"status": 10200, "message": "success", "data": province_city_result_list})
 
 
-@auth_zsq
+# @auth_zsq
 def get_province_data_list(request):
 
     '''
@@ -70,7 +70,7 @@ def get_province_data_list(request):
             return JsonResponse({"status": 10200, "message": "success", "data": province_result_list})
 
 
-@auth_zsq
+# @auth_zsq
 def get_city_data_list(request):
 
     '''
@@ -99,7 +99,7 @@ def get_city_data_list(request):
             return JsonResponse({"status": 10200, "message": "success", "data": city_result_list})
 
 
-@auth_zsq
+# @auth_zsq
 def get_city_area_data_list(request):
 
     '''
@@ -128,7 +128,7 @@ def get_city_area_data_list(request):
             return JsonResponse({"status": 10200, "message": "success", "data": city_area_result_list})
 
 
-@auth_zsq
+# @auth_zsq
 def get_city_regional_area_data_list(request):
 
     '''
@@ -161,7 +161,7 @@ def get_city_regional_area_data_list(request):
 
 
 
-@auth_zsq
+# @auth_zsq
 def get_city_house_price_data_list(request):
 
     '''
@@ -190,7 +190,7 @@ def get_city_house_price_data_list(request):
             return JsonResponse({"status": 10200, "message": "success", "data": city_house_price_result_list})
 
 
-@auth_zsq
+# @auth_zsq
 def get_source_data_list(request):
 
     '''
@@ -219,7 +219,7 @@ def get_source_data_list(request):
             return JsonResponse({"status": 10200, "message": "success", "data": source_result_list})
 
 
-@auth_zsq
+# @auth_zsq
 def get_source_city_data_list(request):
 
     '''
